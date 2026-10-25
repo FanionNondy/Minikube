@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fandev-cm
+  namespace: default
+data:
+  APP_URL: www.fandev.com
+  APP_DEBUG: "false"
+  APP_PORT: "8080"
+  APP_USER: "fandev"

@@ -1,0 +1,11 @@
+service:
+  type: ClusterIP
+  ports:
+    http: 8000
+    https: 443
+
+replicaCount: 3
+autoscaling:
+  enabled: true
+  maxReplicas: 4
+  minReplicas: 3

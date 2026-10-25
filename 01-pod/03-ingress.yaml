@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fanion-ingress
+  namespace: default
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-targe: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: fanion
+                port:
+                  number: 8080
+  tls:
+    - hosts:
+        - example.com
+      secretName: tls-secret

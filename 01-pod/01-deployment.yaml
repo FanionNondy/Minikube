@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fanion
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fanion
+  template:
+    metadata:
+      labels:
+        app: fanion
+    spec:
+      containers:
+        - name: fanion
+          image: nginx
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+        
